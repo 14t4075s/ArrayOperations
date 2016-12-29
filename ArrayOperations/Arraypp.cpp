@@ -42,22 +42,22 @@ int Arraypp::getSize()
 	return arr.size();
 }
 
-void Arraypp::initArray()
+void Arraypp::initArray(int size)
 {
 	arr.clear();
 	srand(time(0));
 	double randNum(0);
-	for (size_t i = 0; i < arr.size(); i++)
+	for (size_t i = 0; i < size; i++)
 	{
 		randNum = rand() % 100;
 		arr.push_back(randNum);
 	}
 }
 
-void Arraypp::initArray(double num)
+void Arraypp::initArray(double num, int size)
 {
 	arr.clear();
-	for (size_t i = 0; i < arr.size(); i++)
+	for (size_t i = 0; i < size; i++)
 	{
 		arr.push_back(num);
 	}
@@ -158,15 +158,25 @@ void Arraypp::makeAbs()
 	}
 }
 
-void Arraypp::shift(int direction)
+void Arraypp::shift(int direction, int times)
 {
+	if (times <= 0)
+	{
+		times = 1;
+	}
 	if (direction == LEFT)
 	{
-		std::rotate(arr.begin(), arr.begin() + 1, arr.end());
+		for (size_t i = 0; i < times; i++)
+		{
+			std::rotate(arr.begin(), arr.begin() + 1, arr.end());
+		}
 	}
 	else
 	{
-		std::rotate(arr.rbegin(), arr.rbegin() + 1, arr.rend());
+		for (size_t i = 0; i < times; i++)
+		{
+			std::rotate(arr.rbegin(), arr.rbegin() + 1, arr.rend());
+		}
 	}
 }
 
