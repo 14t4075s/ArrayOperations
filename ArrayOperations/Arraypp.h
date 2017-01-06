@@ -44,19 +44,19 @@ public:
 	/**
 	* constructor.
 	* create a Arraypp object from a string
-	*@param str std::string
+	*@param str std::string containing array data
 	*/
 	Arraypp(std::string str);
 	/**
 	* constructor.
 	* create a Arraypp object from an input file stream
-	*@param file std::ifstream
+	*@param file std::ifstream containing array data
 	*/
 	Arraypp(std::ifstream& file);
 
 	/**
 	* function return the current Array size
-	*
+	*@return arr.size()
 	*/
 	int getSize();
 	/**
@@ -131,6 +131,7 @@ public:
 	* allow usage of standard output to print array content
 	*@param os std::ostream outputstream
 	*@param c Arraypp array to output
+	*@return an output stream
 	*/
 	friend std::ostream& operator<<(std::ostream& os, const Arraypp& c);
 	/**
@@ -138,16 +139,19 @@ public:
 	*value must  be separated by a space
 	*@param is std::istream inputstream
 	*@param c Arraypp array to fill
+	*@return an input stream
 	*/
 	friend std::istream& operator >> (std::istream& is, Arraypp& c);
 	/**
 	* allow addition of two Arraypp object
 	*@param a Arraypp array to add
+	*@return operation result as array
 	*/
 	Arraypp operator+(const Arraypp &a);
 	/**
 	* allow substraction of two Arraypp object
 	*@param a Arraypp array to substract
+	*@return operation result as array
 	*/
 	Arraypp operator-(const Arraypp &a);
 	~Arraypp();
